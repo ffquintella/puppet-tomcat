@@ -66,12 +66,12 @@ class tomcat::source {
     ensure  => link,
     target  => $::tomcat::home,
     before  => Class['tomcat::logging'],
-    require => Archive["${tomcaturl}"]
+    require => Archive["/tmp/apache-tomcat-${version}.tgz"]
   }
 
   file { $::tomcat::home:
     ensure  => directory,
-    require => Archive["${tomcaturl}"],
+    require => Archive["/tmp/apache-tomcat-${version}.tgz"],
   }
 
   # Workarounds
