@@ -81,7 +81,7 @@ class tomcat::source {
       file {"${::tomcat::home}/bin/catalina.sh":
         ensure  => file,
         content => file(sprintf('%s/files/catalina.sh-6.0.18', get_module_path($module_name))),
-        require => Archive["apache-tomcat-${tomcat::version}"],
+        require => Archive["/tmp/apache-tomcat-${version}.tgz"],
         mode    => '0755',
       }
     }
