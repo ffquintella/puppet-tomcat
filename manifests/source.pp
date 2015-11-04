@@ -48,7 +48,7 @@ class tomcat::source {
     target      => '/opt',
   }*/
 
-  archive { "apache-tomcat-${version}":
+  archive { "$tomcaturl":
     ensure        => present,
     extract       => true,
     extract_path  => '/opt',
