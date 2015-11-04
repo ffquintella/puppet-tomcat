@@ -48,6 +48,8 @@ class tomcat::source {
     target      => '/opt',
   }*/
 
+  class{'archive':}
+
   archive { "$tomcaturl":
     ensure        => present,
     extract       => true,
