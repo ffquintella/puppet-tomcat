@@ -65,7 +65,6 @@ class tomcat::source {
   file { '/opt/apache-tomcat':
     ensure  => link,
     target  => $::tomcat::home,
-    require => Archive["apache-tomcat-${version}"],
     before  => Class['tomcat::logging'],
     require => Archive["${tomcaturl}"]
   }
