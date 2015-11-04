@@ -57,8 +57,8 @@ class tomcat::source {
     source        => $tomcaturl,
     creates       => "/opt/apache-tomcat-${version}",
     cleanup       => true,
-    checksum_type => 'md5',
-    checksum      => "${tomcaturl}.md5",
+    #checksum_type => 'md5',
+    #checksum      => "${tomcaturl}.md5",
   }
 
 
