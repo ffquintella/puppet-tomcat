@@ -50,7 +50,7 @@ class tomcat::source {
 
   class{'archive':}
 
-  archive { "$tomcaturl":
+  archive { "${tomcaturl}":
     ensure        => present,
     extract       => true,
     extract_path  => '/opt',
@@ -67,11 +67,12 @@ class tomcat::source {
     target  => $::tomcat::home,
     require => Archive["apache-tomcat-${version}"],
     before  => Class['tomcat::logging'],
+    require => Archive["${tomcaturl}"]
   }
 
   file { $::tomcat::home:
     ensure  => directory,
-    require => Archive["apache-tomcat-${version}"],
+    require => Archive["${tomcaturl}"],
   }
 
   # Workarounds
