@@ -50,12 +50,12 @@ class tomcat::source {
 
   class{'archive':}
 
-  archive { "${tomcaturl}":
+  archive { "/tmp/apache-tomcat-${version}.tgz":
     ensure        => present,
     extract       => true,
     extract_path  => '/opt',
     source        => $tomcaturl,
-    creates       => "apache-tomcat-${version}",
+    creates       => "/opt/apache-tomcat-${version}",
     cleanup       => true,
     checksum_type => 'md5',
     checksum      => "${tomcaturl}.md5",
