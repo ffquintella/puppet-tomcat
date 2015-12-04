@@ -40,7 +40,7 @@ class tomcat::source {
 
   $baseurl = "${sources_src}/tomcat-${maj_version}/v${version}/bin"
   $tomcaturl = "${baseurl}/apache-tomcat-${version}.tar.gz"
-
+  
   /*archive{ "apache-tomcat-${version}":
     url         => $tomcaturl,
     digest_url  => "${tomcaturl}.md5",
